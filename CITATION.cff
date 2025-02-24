@@ -1,0 +1,31 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: RISC-V VP
+message: >-
+  If you want to cite this software, please use the metadata from this file.
+type: software
+authors:
+  - given-names: Vladimir
+    family-names: Herdt
+    email: riscv@informatik.uni-bremen.de
+    affiliation: University of Bremen
+    orcid: 'https://orcid.org/0000-0002-4481-057X'
+  - given-names: Group of Computer Architecture
+    email: riscv@informatik.uni-bremen.de
+    affiliation: University of Bremen
+  - given-names: Rolf
+    family-names: Drechsler
+    email: drechsler@uni-bremen.de
+    affiliation: University of Bremen
+    orcid: 'https://orcid.org/0000-0002-9872-1740'
+identifiers:
+  - type: doi
+    value: 10.1016/j.sysarc.2020.101756
+    description: >-
+      RISC-V based virtual prototype: An extensible and configurable platform for the system-level
+repository-code: 'hhttps://github.com/agra-uni-bremen/riscv-vp'
+abstract: >-
+  RISC-V based virtual prototype: An extensible and configurable platform for the system-level 
+license: MIT
