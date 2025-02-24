@@ -1,3 +1,0 @@
-  Id   Target Id         Frame 
-* 1    Thread 1          _start () at ../gdb/mc-info-threads/mc-info-threads.S:5
-  2    Thread 2          _start () at ../gdb/mc-info-threads/mc-info-threads.S:5

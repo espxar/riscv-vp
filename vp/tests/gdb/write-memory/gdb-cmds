@@ -1,3 +1,0 @@
-set *((int *)$sp) = 23
-p *((int *)$sp)
-quit

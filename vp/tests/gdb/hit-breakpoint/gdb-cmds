@@ -1,5 +1,0 @@
-set logging off
-break hit-breakpoint.S:5
-set logging on
-continue
-quit

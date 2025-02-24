@@ -1,7 +1,0 @@
-set logging off
-break mc-dead-thread.S:13
-set logging on
-continue
-next
-info threads
-quit
