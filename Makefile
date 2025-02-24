@@ -4,8 +4,14 @@ MAKEFLAGS += --no-print-directory
 USE_SYSTEM_SYSTEMC ?= ON
 
 #The system using systemc library
-SYSTEMC_PATH = /opt/systemc
-SYSTEMC_LANGUAGE_PATH = /opt/systemc/lib/cmake/SystemCLanguage
+SYSTEMC_PATH = vp/src/vendor/systemc/build
+SYSTEMC_LANGUAGE_PATH = vp/src/vendor/systemc/build/lib/cmake/SystemCLanguage
+
+sc:
+	mkdir -p vp/src/vendor/systemc/build
+	cd vp/src/vendor/systemc/build && \
+	cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEMC_THREADS=ON -DENABLE_SANITIZER=ON -DCMAKE_INSTALL_PREFIX=.
+	$(MAKE) -j$(nproc) install -C vp/src/vendor/systemc/build
 
 vps: vp/src/core/common/gdb-mc/libgdb/mpc/mpc.c vp/build/Makefile
 	$(MAKE) -j$(sysctl -n hw.logicalcpu) install -C vp/build
@@ -36,6 +42,9 @@ vp-clean:
 
 qt-clean:
 	rm -rf env/basic/vp-display/build
+
+sc-clean:
+	rm -rf vp/src/vendor/systemc/build
 
 clean-all: vp-clean qt-clean
 

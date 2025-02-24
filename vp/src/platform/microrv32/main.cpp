@@ -142,7 +142,7 @@ int sc_main(int argc, char **argv) {
 		new DirectCoreRunner(core);
 	}
 
-	printf("Local XXXUXXX: start simulationo!\n");
+	printf("Local XXXUXXX: start simulation!\n");
 	sc_core::sc_start();
 
 	core.show();
