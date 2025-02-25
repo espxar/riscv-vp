@@ -24,7 +24,7 @@ set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR})
 
 include(cmake/AddGitSubmodule.cmake)
 
-set(Boost_INCLUDE_DIR /usr/local/include)  # Intel Mac
+set(Boost_INCLUDE_DIR /opt/homebrew/opt/boost/include)  # Apple Mac
 include_directories(${Boost_INCLUDE_DIR})
 find_package( Boost REQUIRED COMPONENTS iostreams program_options log)
 
