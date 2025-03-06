@@ -1429,6 +1429,10 @@ void ISS::init(instr_memory_if *instr_mem, data_memory_if *data_mem, clint_if *c
 	this->clint = clint;
 	regs[RegFile::sp] = sp;
 	pc = entrypoint;
+
+    // std::cout << "[ISS::init] Core ID=" << std::dec << get_hart_id()
+    //       << " entrypoint=0x" << std::hex << entrypoint
+    //       << " sp=0x" << sp << std::dec << std::endl;
 }
 
 void ISS::sys_exit() {

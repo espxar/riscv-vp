@@ -24,7 +24,17 @@ set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR})
 
 include(cmake/AddGitSubmodule.cmake)
 
-set(Boost_INCLUDE_DIR /usr/local/include)  # Intel Mac
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    if(CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
+        # Apple Silicon
+        set(Boost_INCLUDE_DIR /opt/homebrew/opt/boost/include)
+    elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
+        # Intel Mac
+        set(Boost_INCLUDE_DIR /usr/local/include)
+    endif()
+endif()
+
 include_directories(${Boost_INCLUDE_DIR})
 find_package( Boost REQUIRED COMPONENTS iostreams program_options log)
 
@@ -44,12 +54,11 @@ message(STATUS "USE_SYSTEM_SYSTEMC is ${USE_SYSTEM_SYSTEMC}")
 add_compile_definitions(SC_ALLOW_DEPRECATED_IEEE_API)
 
 
-set(BUILD_HIFIVE OFF) # 添加这一行
+set(BUILD_HIFIVE OFF)
 if(BUILD_HIFIVE)
     add_subdirectory(src/platform/hifive)
 endif()
 
-# 其他平台照常
 add_subdirectory(src)
 
 

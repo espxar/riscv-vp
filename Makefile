@@ -11,10 +11,10 @@ sc:
 	mkdir -p vp/src/vendor/systemc/build
 	cd vp/src/vendor/systemc/build && \
 	cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEMC_THREADS=ON -DENABLE_SANITIZER=ON -DCMAKE_INSTALL_PREFIX=.
-	$(MAKE) -j$(nproc) install -C vp/src/vendor/systemc/build
+	$(MAKE) -j$(sysctl -n hw.logicalcpu) install -C vp/src/vendor/systemc/build
 
 vps: vp/src/core/common/gdb-mc/libgdb/mpc/mpc.c vp/build/Makefile
-	$(MAKE) -j$(sysctl -n hw.logicalcpu) install -C vp/build
+	$(MAKE) -j$(sysctl -n hw.logicalcpu) -C vp/build
 
 vp/src/core/common/gdb-mc/libgdb/mpc/mpc.c:
 	git submodule update --init vp/src/core/common/gdb-mc/libgdb/mpc
